@@ -1,0 +1,98 @@
+/* pop-up */
+
+
+.pop-up{
+
+    background: #fff;
+    max-width: min(80%,560px);
+    width: 100%;
+    height: min-content;
+    border-radius: 40px 0 40px 40px;
+    h3{
+        font-size: 40px;
+        font-weight: 700;
+        line-height: 50px;
+    }
+    form{
+        display: flex;
+        flex-direction: column;
+        gap:30px;
+
+        input{
+            width: 100%;
+            height: 64px;
+            border: none;
+            border-radius: 100px;
+            background: #FAFAFA;
+            padding: 0 30px;
+        }
+        .text-error{
+            margin-top: 10px;
+            display: none;
+            color: #F76275;
+            font-size: 18px;
+            font-weight: 400;
+            line-height: 18px;
+        }
+        &.checked{
+            .place-for-input:has(input:invalid){            
+                input:invalid{
+                    background: #FFE7E7;
+                }
+                .text-error{
+                    display: block;
+                }
+            }
+        }
+    }
+
+    .pop-up-container{
+        position: relative;
+    }
+    .close-pop-up{
+        cursor:pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #fff;
+        border-radius: 100%;
+        transform: translate(50%, -50%);
+        position: absolute;
+        right: 0;
+        top: 0;
+        height: 48px;
+        width: 48px;
+
+    }
+    position: fixed;
+    z-index: 1000;
+    top: 200vh;
+    bottom: 0;
+    margin: auto;
+    transition: all 0.5s;
+}
+
+.pop-up.show{
+    top: 0;
+    -webkit-box-shadow: 0px 0px 0px max(100vh,100vw) #35353A1A;
+    -moz-box-shadow: 0px 0px 0px max(100vh,100vw) #35353A1A;
+    box-shadow: 0px 0px 5px max(100vh,100vw) #35353A1A;
+}
+
+@media (max-width: 600px){
+    .pop-up{
+        form{
+            gap:20px;
+            .text-error{
+                font-size: 14px;
+            }
+            input{
+                height: 48px;
+            }
+        }
+        h3{
+            font-size: 24px;
+        }
+
+    }
+}

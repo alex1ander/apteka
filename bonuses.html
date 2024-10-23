@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./assets/css/burger.css">
+    <link rel="stylesheet" href="./assets/css/accordion.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <script src="./assets/js/script.js"></script>
+
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAVbaqmwcY22zLtTX-dri-BmWBnpgBNCV4"></script>
+    <script src="./assets/js/initmap.js"></script>
+
+</head>
+<body>
+
+    <header class="container-xl px-3">
+        <div class="header-content">
+            <img class="logo" src="./assets/image/logo.png" alt="">
+
+            <div class="place-for-items">
+                <div class="main-menu-container d-none d-lg-block">
+                    <ul class="main-menu">
+                        <li><a href="#">Про нас</a></li>
+                        <li><a href="#">Соціальні програми</a></li>
+                        <li><a href="#">Програма лояльності</a></li>
+                        <li><a href="#">Контакти</a></li>
+                        <li><a href="#">Вакансії</a></li>
+                    </ul>
+                </div>
+                <div class="blind-functional">
+                    <svg class="fill-transparent" width="18" height="18" viewBox="0 0 18 18">
+                        <use href="./assets/icon/sprite.svg#eye-off"></use>
+                    </svg>
+                    <span class="d-none d-xl-flex">Для слабозорих</span>
+                </div>
+
+                <div class="burger-btn-place d-block d-lg-none">
+                    <button id="burger-btn" class="burger-btn">
+                        <span class="burger-btn-line top"></span>
+                        <span class="burger-btn-line  mid"></span>
+                        <span class="burger-btn-line  botm"></span>
+                    </button>
+                </div>
+                <div id="burger-menu" class="burger-menu">
+                    <ul class="main-menu">
+                        <li><a href="#">Про нас</a></li>
+                        <li><a href="#">Соціальні програми</a></li>
+                        <li><a href="#">Програма лояльності</a></li>
+                        <li><a href="#">Контакти</a></li>
+                        <li><a href="#">Вакансії</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero-section mt-0">
+        <div class="slider-swiper-wrapper">
+            <div class="swiper main-banner-swiper">
+                <div class="swiper-wrapper">
+
+                    <!-- slide start -->
+
+
+                    <div class="full-bg-image swiper-slide" style="background-image: url(./assets/image/hero4.png);">
+                        <div class="container-xl p-0 p-sm-3">
+                            <div class="banner-content">
+                                <h2 class="hero-title">Програма лояльності</h2>
+                                <span class="text-white">Наша місія полягає в тому, щоб допомагати людям</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="full-bg-image swiper-slide" style="background-image: url(./assets/image/hero4.png);">
+                        <div class="container-xl p-0 p-sm-3">
+                            <div class="banner-content">
+                                <h2 class="hero-title">Програма лояльності</h2>
+                                <span class="text-white">Наша місія полягає в тому, щоб допомагати людям</span>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    
+                </div>
+
+
+            </div>
+
+            <div class="navigation-container  container-xl px-3">
+                <div class="navigation-wrapper">
+                    <div class="swiper-button-prev">
+                        <svg class="fill-transparent" width="24" height="24"  viewBox="0 0 24 24">
+                            <use href="./assets/icon/sprite.svg#arrow-right"></use>
+                        </svg>
+                    </div>
+                    <div class="swiper-button-next">
+                        <svg class="fill-transparent" width="24" height="24"  viewBox="0 0 24 24">
+                            <use href="./assets/icon/sprite.svg#arrow-right"></use>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            <div class="swiper-pagination mt-4"></div>
+        </div>
+
+    </section>
+    <script>
+        var swiper = new Swiper(".main-banner-swiper", {
+            slidesPerView: 1,
+            spaceBetween: 0,
+            freeMode: false,
+
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            
+            pagination: {
+                el: '.swiper-pagination',
+                type: 'custom',
+                renderCustom: function (swiper, current, total) {
+                // Создаем кастомный HTML для пагинации
+                let dots = '';
+                for (let i = 1; i <= total; i++) {
+                    dots += `<span class="swiper-pagination-bullet${i === current ? ' active' : ''}"></span>`;
+                }
+                let formattedCurrent = current < 10 ? `0${current}` : `${current}`;
+                let formattedTotal = total < 10 ? `0${total}` : `${total}`;
+                return `
+                    <span class="current-slide pagination-number">${formattedCurrent}</span>
+                    <div class="pagination-line">${dots}</div>
+                    <span class="total-slides pagination-number">${formattedTotal}</span>`;
+                },
+            },
+            on: {
+                slideChange: function () {
+                updatePagination(this);
+                },
+            },
+          });
+
+        function updatePagination(swiper) {
+            const current = swiper.realIndex + 1;
+            let formattedCurrent = current < 10 ? `0${current}` : `${current}`;
+            const paginationBullets = document.querySelectorAll('.swiper-pagination-bullet');
+
+            // Обновляем текущий слайд
+            document.querySelector('.current-slide').textContent = formattedCurrent;
+
+            // Обновляем активный класс для точек
+            paginationBullets.forEach((bullet, index) => {
+                bullet.classList.toggle('active', index === formattedCurrent - 1);
+            });
+        }
+    </script>
+
+
+
+
+<section class="about-us-section">
+
+    <div class="container-xl px-3">
+        <div class="d-flex flex-wrap gap-5">
+            <div class="col-12 col-sm-5">
+                <img class="ratio ratio-1x1" src="./assets/image/about7.png" alt="">
+            </div>
+
+
+            <div class="col d-flex flex-column  justify-content-center">
+                <h2>Соціальна програма</h2>
+                <p>Наша місія полягає в тому, щоб допомагати людям жити більш здоровимі кращим життям, забезпечуючи їх якісними медичними послугами та медикаментами за доступними цінами.</p>
+                
+                
+            </div>
+        </div>
+    </div>
+
+</section>
+
+
+
+<section class="discount-section">
+
+    <div class="container-xl px-0 px-md-3">
+
+        <div class="discount-block py-5 px-3 px-md-5 bg-main-color d-flex flex-column flex-md-row justify-content-center align-items-center gap-5">
+
+            <span class="discount-total">5%</span>
+            <img class="discount-img" src="./assets/image/discount.png" alt="">
+            <span class="discount-text">Отримай знижку 5% від кожного замовлення на сайті</span>
+
+        </div>
+
+    </div>
+
+
+</section>
+
+<section class="about-us-section">
+
+    <div class="container-xl px-3">
+        <div class="d-flex flex-wrap gap-5 flex-sm-row-reverse">
+            <div class="col-12 col-sm-5">
+                <img class="ratio ratio-1x1" src="./assets/image/about6.png" alt="">
+            </div>
+
+
+            <div class="col d-flex flex-column  justify-content-center">
+                <h2>Що таке бонус?</h2>
+                <p>Програма лояльності «Лайк» не дає разову знижку. Ми пропонуємо непомітно збирали бонуси, щоб економити на аптечних покупках тоді, коли це необхідно. Можете витратити бонуси під час наступної покупки або накопичити та потім зекономити більше.
+                    Бонус – це персональна знижка на покупки, яку ми не видаємо фізичними грошима. Цю знижку можна витратити під час наступного візиту в «Аптека АНЦ». Для використання бонусів вартість товарів у чеку має бути вищою за 1 грн.</p>
+                
+                
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<section class="mb-0">
+
+    <div class="container-xl px-3 d-flex flex-column flex-sm-row justify-content-between">
+        <img src="./assets/image/warning.png" alt="" class="w-100">
+    </div>
+</section>
+
+<footer>
+    <div class="container-xl px-3 py-5 d-flex flex-column flex-sm-row justify-content-between">
+        <div class="col-12 col-sm-8 d-flex flex-wrap w-100">
+          
+            <div class="col-6 col-sm menu mb-4">
+                <ul>
+                    <li>Клієнтам:</li>
+                    <li>Про нас</li>
+                    <li>Відгуки</li>
+                    <li>Контакти</li>
+                </ul>
+            </div>
+
+            <div class="col-6 col-sm menu mb-4">
+                <ul>
+                    <li>Компанія:</li>
+                    <li>Про нас</li>
+                    <li>Відгуки</li>
+                    <li>Контакти</li>
+                </ul>
+            </div>
+
+            <div class="col-6 col-sm menu mb-4">
+                <ul>
+                    <li>Партнери:</li>
+                    <li>Про нас</li>
+                    <li>Відгуки</li>
+                </ul>
+            </div>
+
+        
+            <div class="col-6 col-sm-5 d-flex flex-column align-items-sm-end mb-4">
+                <div class="d-flex flex-column align-items-center">
+                    <span class="login-title">Вхід у кабінет</span>
+                    <span class="site-btn bg-white-t20 text-white mt-3 mx-auto mx-sm-0">Мій кабінет</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container-xl px-3">
+        <div class="contact-info d-flex flex-wrap justify-content-sm-center gap-4">
+            <span class="address">Київ, вул. Чайковського 100</span>
+            <span class="phone">+38 068 928 102970</span>
+            <span class="email">email@gmail.com</span>
+        </div>
+    </div>
+
+    <div class="container-xl px-3 py-5">
+        <div class="copyright d-flex flex-wrap justify-content-between gap-5">
+            <span>© 2023, Apteka Tabletka. All right reserved</span>
+            <span class="phone">Powered by <strong>Sofenty</strong></span>
+        </div>
+    </div>
+    <div class="container-xl px-3 footer-img">
+        <img class="container-xl px-3 footer-img" src="./assets/image/footer.png" alt="">
+    </div>
+</footer>
+</body>
+</html>
